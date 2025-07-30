@@ -7,7 +7,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axiosInstance.get("/");
+      const response = await axiosInstance.get("/api");
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error.message);
@@ -15,8 +15,8 @@ function App() {
   };
 
   useEffect(() => {
-    fetchData(); // Only call on mount
-  }, []); // ✅ added empty dependency array to prevent infinite loop
+    fetchData(); 
+  }, []); 
 
   return <div>{data}</div>;
 }

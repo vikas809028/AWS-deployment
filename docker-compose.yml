@@ -4,12 +4,16 @@ services:
     build: ./backend
     ports:
       - "5014:5014"
+    environment:
+      - PORT=5014
+      - MONGO_URI=mongodb+srv://vikastiwari809028:database%40809028@cluster0.dlgt4hc.mongodb.net/AWS?retryWrites=true&w=majority
     env_file:
       - ./backend/.env
-
   frontend:
     build: ./frontend
     ports:
       - "5173:80"
+    environment:
+      - VITE_API_URL=http://3.110.154.69:5014
     env_file:
       - ./frontend/.env
